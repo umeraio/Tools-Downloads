@@ -3,175 +3,325 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tools & Downloads | Umer Malik</title>
-<link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700;800&display=swap" rel="stylesheet">
+<title>Tools & Templates | Umer Malik</title>
 <style>
-/* Essential for pinning footer to bottom */
-html, body {
-    height: 100%;
-    margin: 0;
+:root{
+  --bg:#eaf4ff;
+  --bg2:#fff7df;
+  --primary:#0b2f6b;
+  --primary2:#1455a3;
+  --gold:#f4c542;
+  --orange:#ff7a18;
+  --purple:#5b1d91;
+  --purple2:#7a2bc2;
+  --text:#172033;
+  --muted:#5f6b7a;
+  --shadow:0 22px 55px rgba(11,47,107,0.18);
 }
-
-body {
-    font-family: 'Segoe UI', sans-serif;
-    background: #eaf2fb;
-    color: #222;
-    display: flex;
-    flex-direction: column;
+*{box-sizing:border-box;}
+html{
+  scrollbar-width:thin;
+  scrollbar-color:var(--gold) rgba(11,47,107,0.18);
 }
-
-header {
-    background: linear-gradient(90deg, #0a3d91, #005fa3, #0078D7);
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 0 0 20px 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+body{
+  margin:0;
+  font-family:"Segoe UI",Arial,sans-serif;
+  color:var(--text);
+  min-height:100vh;
+  background:
+    radial-gradient(circle at top left,#dbeafe 0,transparent 32%),
+    radial-gradient(circle at top right,#fff0b8 0,transparent 30%),
+    linear-gradient(135deg,var(--bg),var(--bg2));
+  overflow-x:hidden;
 }
-
-.header-spacer { flex: 1; }
-
-.hero {
-    flex: 2;
-    text-align: center;
+body::-webkit-scrollbar{width:11px;}
+body::-webkit-scrollbar-track{background:rgba(11,47,107,0.10);border-radius:999px;}
+body::-webkit-scrollbar-thumb{
+  background:linear-gradient(180deg,var(--gold),var(--orange),var(--primary2));
+  border-radius:999px;
+  border:3px solid rgba(255,255,255,0.75);
 }
-
-.hero h1 {
-    font-size: 1.6rem; 
-    font-weight: 800;
-    margin: 0;
+.wrapper{
+  width:min(1180px,92%);
+  margin:0 auto;
+  padding:18px 0 28px;
 }
-
-.hero p {
-    font-size: 0.85rem;
-    opacity: 0.9;
-    margin: 2px 0 0 0;
+.top-nav{
+  display:flex;
+  justify-content:flex-end;
+  margin-bottom:6px;
 }
-
-.nav {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
+.home-btn{
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,var(--purple),var(--purple2));
+  color:#fff;
+  font-weight:800;
+  padding:12px 22px;
+  border-radius:999px;
+  box-shadow:0 14px 32px rgba(91,29,145,0.24);
+  transition:all .25s ease;
 }
-
-.nav a {
-    color: #0a3d91;
-    text-decoration: none;
-    font-weight: 800;
-    font-size: 0.8rem;
-    padding: 6px 14px;
-    border-radius: 10px;
-    background: #FFD700;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-    transition: all 0.3s ease;
-    white-space: nowrap;
+.home-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 20px 42px rgba(91,29,145,0.34);
 }
-
-.nav a:hover {
-    background: #fff;
-    color: #0078D7;
+.hero{
+  text-align:center;
+  padding:0 18px 26px;
 }
-
-.container {
-    max-width: 1100px; /* Widened slightly to accommodate more space */
-    margin: 30px auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px; /* Increased space between columns */
-    padding: 0 40px; /* Increased side padding */
+.hero h1{
+  margin:0;
+  font-size:clamp(46px,7vw,78px);
+  line-height:1;
+  color:var(--purple2);
+  font-weight:900;
+  letter-spacing:-1px;
 }
-
-a.card {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    text-decoration: none;
-    background: #ffffff;
-    padding: 18px;
-    font-weight: 700;
-    font-size: 1rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    transition: all .3s ease;
-    border-left: 5px solid #0078D7;
-    color: #004a99;
+.hero .cap{
+  font-size:48px;
+  display:inline-block;
+  margin-right:14px;
+  vertical-align:middle;
 }
-
-a.card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 15px rgba(0,120,215,0.12);
-    background: #fdfdff;
-    border-left: 5px solid #FFD700;
+.hero p{
+  max-width:850px;
+  margin:28px auto 0;
+  color:#4e5868;
+  font-size:clamp(22px,3vw,38px);
+  line-height:1.35;
 }
-
-@media (max-width: 768px) {
-    header { flex-direction: column; padding: 12px; }
-    .header-spacer { display: none; }
-    .nav { justify-content: center; margin-top: 8px; }
-    .container { grid-template-columns: 1fr; gap: 15px; padding: 0 20px; }
+.section-card{
+  background:rgba(255,255,255,0.72);
+  border:1px solid rgba(20,85,163,0.16);
+  border-radius:34px;
+  padding:32px;
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(14px);
 }
-
-/* Footer Pinned to Very Bottom */
-.footer-container {
-    margin-top: auto; 
-    text-align: center;
-    width: 100%;
-    padding: 15px 0;
+.section-title{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  margin:0 0 26px;
+  color:var(--purple);
+  font-size:clamp(30px,4vw,48px);
+  font-weight:900;
+  text-align:center;
 }
-
-footer {
-    display: inline-block;
-    border-top: 3px solid #FFD700;
-    padding: 8px 25px;
-    font-size: 0.95rem;
-    background: linear-gradient(135deg, #f8fbff, #edf5fe);
-    color: #333;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+.cards{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:22px;
 }
-
-footer b i {
-    font-style: italic;
-    font-weight: bold;
+.card{
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:18px;
+  text-decoration:none;
+  background:linear-gradient(180deg,#ffffff,#f8fbff);
+  color:var(--primary);
+  border-radius:24px;
+  padding:24px;
+  min-height:120px;
+  box-shadow:0 18px 42px rgba(11,47,107,0.16);
+  border:1px solid rgba(20,85,163,0.20);
+  border-left:8px solid var(--gold);
+  overflow:hidden;
+  transition:all .25s ease;
+}
+.card::after{
+  content:"";
+  position:absolute;
+  right:-45px;
+  top:-45px;
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  background:rgba(244,197,66,0.18);
+}
+.card:hover{
+  transform:translateY(-7px);
+  box-shadow:0 28px 62px rgba(11,47,107,0.26);
+  border-left-color:var(--purple2);
+}
+.icon{
+  width:58px;
+  height:58px;
+  border-radius:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 auto;
+  font-size:30px;
+  background:linear-gradient(135deg,var(--purple),var(--purple2));
+  color:#fff;
+  box-shadow:0 12px 24px rgba(91,29,145,0.22);
+  position:relative;
+  z-index:1;
+}
+.card-content{
+  position:relative;
+  z-index:1;
+}
+.card h2{
+  margin:0 0 7px;
+  font-size:21px;
+  color:var(--primary);
+}
+.card p{
+  margin:0;
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.55;
+}
+.footer-container{
+  text-align:center;
+  margin:34px 0 0;
+}
+footer{
+  display:inline-block;
+  background:rgba(255,255,255,0.78);
+  border-top:3px solid var(--gold);
+  color:#46505f;
+  padding:12px 24px;
+  border-radius:18px;
+  font-size:14px;
+  font-weight:700;
+  font-style:italic;
+  box-shadow:0 12px 28px rgba(11,47,107,0.14);
+}
+@media(max-width:800px){
+  .cards{grid-template-columns:1fr;}
+  .section-card{padding:22px;}
+  .hero p{font-size:22px;}
+  .card{padding:20px;min-height:auto;}
 }
 </style>
 </head>
 <body>
+<div class="wrapper">
+  <div class="top-nav">
+    <a class="home-btn" href="https://umeraio.github.io/home/">Home</a>
+  </div>
 
-<header>
-  <div class="header-spacer"></div>
-  <div class="hero">
-    <h1>Tools & Downloads</h1>
+  <section class="hero">
+    <h1><span class="cap">💻</span>Tools & Templates</h1>
     <p>Templates, utilities, scripts, and helpful downloadable materials.</p>
+  </section>
+
+  <section class="section-card">
+    <h2 class="section-title">Access Tools & Templates</h2>
+
+    <div class="cards">
+      <a href="https://umeraio.github.io/GMAIL-BULK-DELETE/" class="card">
+        <span class="icon">📧</span>
+        <span class="card-content">
+          <h2>Gmail Bulk Delete</h2>
+          <p>Tools and guidance for managing and deleting Gmail messages in bulk.</p>
+        </span>
+      </a>
+      <a href="https://umeraio.github.io/microsoft-word-macros/" class="card">
+        <span class="icon">📝</span>
+        <span class="card-content">
+          <h2>MS Word Macros</h2>
+          <p>Useful Microsoft Word macros for productivity, formatting, and automation.</p>
+        </span>
+      </a>
+      <a href="https://umeraio.github.io/how-to-install-macro/" class="card">
+        <span class="icon">🧩</span>
+        <span class="card-content">
+          <h2>How to Install Macros</h2>
+          <p>Step-by-step guidance for installing and enabling Word macros safely.</p>
+        </span>
+      </a>
+      <a href="https://umeraio.github.io/note.one/" class="card">
+        <span class="icon">🛡️</span>
+        <span class="card-content">
+          <h2>Note Malware Removal</h2>
+          <p>Helpful malware-removal guidance for suspicious note or file-based threats.</p>
+        </span>
+      </a>
+      <a href="https://umeraio.github.io/PowerShell-commands/" class="card">
+        <span class="icon">💻</span>
+        <span class="card-content">
+          <h2>PowerShell Commands</h2>
+          <p>A practical collection of PowerShell commands for Windows administration.</p>
+        </span>
+      </a>
+      <a href="https://umeraio.github.io/what-is-PowerShell-script/" class="card">
+        <span class="icon">⚙️</span>
+        <span class="card-content">
+          <h2>What is PowerShell Script</h2>
+          <p>Simple explanation of PowerShell scripting and how scripts are used.</p>
+        </span>
+      </a>
+      <a href="https://umeraio.github.io/winget-commands/" class="card">
+        <span class="icon">📦</span>
+        <span class="card-content">
+          <h2>Winget Commands</h2>
+          <p>Windows Package Manager commands for installing and updating software.</p>
+        </span>
+      </a>
+      <a href="https://umeraio.github.io/srx-commands/" class="card">
+        <span class="icon">🌐</span>
+        <span class="card-content">
+          <h2>SRX (Juniper) Commands</h2>
+          <p>Juniper SRX command references for firewall and network management.</p>
+        </span>
+      </a>
+      <a href="https://umeraio.github.io/github-html-files-update-/" class="card">
+        <span class="icon">🔗</span>
+        <span class="card-content">
+          <h2>GitHub HTML Update Guide</h2>
+          <p>Guidance for updating and managing HTML files on GitHub.</p>
+        </span>
+      </a>
+      <a href="https://umeraio.github.io/how-to-update-website-link/" class="card">
+        <span class="icon">🛠️</span>
+        <span class="card-content">
+          <h2>Update Website Links Tool</h2>
+          <p>A practical tool page for updating website links efficiently.</p>
+        </span>
+      </a>
+      <a href="https://umeraio.github.io/malware-remover-/" class="card">
+        <span class="icon">🧹</span>
+        <span class="card-content">
+          <h2>Malware Remover (PS Script)</h2>
+          <p>PowerShell-based malware removal script and related guidance.</p>
+        </span>
+      </a>
+      <a href="https://umeraio.github.io/DaVinci-Resolve-Free-Plugins/" class="card">
+        <span class="icon">🎬</span>
+        <span class="card-content">
+          <h2>DaVinci Resolve Plugins</h2>
+          <p>Free plugin resources and support material for DaVinci Resolve.</p>
+        </span>
+      </a>
+      <a href="https://umeraio.github.io/How-To-Sign-Power-Shell-Scripts/" class="card">
+        <span class="icon">✍️</span>
+        <span class="card-content">
+          <h2>PowerShell Scripts Signature</h2>
+          <p>Guidance for signing PowerShell scripts and improving execution trust.</p>
+        </span>
+      </a>
+      <a href="https://umeraio.github.io/fast-files-windows-search/" class="card">
+        <span class="icon">🔎</span>
+        <span class="card-content">
+          <h2>Super Fast Search App</h2>
+          <p>Fast Windows file-search guidance and tool support.</p>
+        </span>
+      </a>
+    </div>
+  </section>
+
+  <div class="footer-container">
+    <footer>Umer Malik: Where Craft Meets Research</footer>
   </div>
-  <div class="nav">
-    <a href="https://umeraio.github.io/home/">🏠 Home</a>
-  </div>
-</header>
-
-<div class="container">
-  <a href="https://umeraio.github.io/GMAIL-BULK-DELETE/" class="card">Gmail Bulk Delete</a>
-  <a href="https://umeraio.github.io/microsoft-word-macros/" class="card">MS Word Macros</a>
-  <a href="https://umeraio.github.io/how-to-install-macro/" class="card">How to Install Macros</a>
-  <a href="https://umeraio.github.io/note.one/" class="card">Note Malware Removal</a>
-  <a href="https://umeraio.github.io/PowerShell-commands/" class="card">PowerShell Commands</a>
-  <a href="https://umeraio.github.io/what-is-PowerShell-script/" class="card">What is PowerShell Script</a>
-  <a href="https://umeraio.github.io/winget-commands/" class="card">Winget Commands</a>
-  <a href="https://umeraio.github.io/srx-commands/" class="card">SRX (Juniper) Commands</a>
-  <a href="https://umeraio.github.io/github-html-files-update-/" class="card">GitHub HTML Update Guide</a>
-  <a href="https://umeraio.github.io/how-to-update-website-link/" class="card">Update Website Links Tool</a>
-  <a href="https://umeraio.github.io/malware-remover-/" class="card">Malware Remover (PS Script)</a>
-  <a href="https://umeraio.github.io/DaVinci-Resolve-Free-Plugins/" class="card">DaVinci Resolve Plugins</a>
-  <a href="https://umeraio.github.io/How-To-Sign-Power-Shell-Scripts/" class="card">PowerShell Scripts Signature</a>
-  <a href="https://umeraio.github.io/fast-files-windows-search/" class="card">Super Fast Search App</a>
 </div>
-
-<div class="footer-container">
-    <footer><b><i>Umer Malik: Where Craft Meets Research</i></b></footer>
-</div>
-
 </body>
 </html>
